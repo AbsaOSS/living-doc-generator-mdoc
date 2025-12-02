@@ -45,7 +45,7 @@ jobs:
 
     - name: Integration test
       id: generate_living_doc_1
-      uses: ./@${{ github.sha }}
+      uses: ./
       with:
         source: "${{ steps.collect_data_without_project.outputs.output-path }}/doc-issues/doc-issues.json"
         report-page: true
@@ -96,7 +96,7 @@ jobs:
 
       - name: Integration test
         id: generate_living_doc_1
-        uses: ./@${{ github.sha }}
+        uses: ./
         env:
           GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         with:
@@ -149,7 +149,7 @@ jobs:
 
       - name: Integration test
         id: generate_living_doc_2
-        uses: ./@${{ github.sha }}
+        uses: ./
         env:
           GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         with:
