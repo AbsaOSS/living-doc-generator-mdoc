@@ -17,9 +17,9 @@
 name: "Static analysis & tests"
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled]
+    branches: [ master ]
 
 jobs:
   analysis:
