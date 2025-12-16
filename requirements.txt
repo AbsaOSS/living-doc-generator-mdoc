@@ -3,7 +3,7 @@ mypy-extensions==1.1.0
 typing_extensions==4.15.0
 pylint==4.0.4
 black==25.11.0
-pytest==9.0.1
+pytest==9.0.2
 pytest-cov==7.0.0
 pytest-mock==3.15.1
 living-doc-utilities==0.3.0
