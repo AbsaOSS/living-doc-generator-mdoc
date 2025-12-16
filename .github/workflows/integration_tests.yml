@@ -39,7 +39,7 @@ jobs:
           [
             {
               "organization-name": "AbsaOSS",
-              "repository-name": "living-doc-generator",
+              "repository-name": "living-doc-generator-mdoc",
               "projects-title-filter": [] 
             }
           ]
@@ -90,7 +90,7 @@ jobs:
             [
               {
                 "organization-name": "AbsaOSS",
-                "repository-name": "living-doc-generator",
+                "repository-name": "living-doc-generator-mdoc",
                 "projects-title-filter": []
               }
             ]
@@ -143,8 +143,8 @@ jobs:
             [
               {
                 "organization-name": "AbsaOSS",
-                "repository-name": "living-doc-generator",
-                "projects-title-filter": []
+                "repository-name": "living-doc-generator-mdoc",
+                "projects-title-filter": ["integration-tests-for-living-doc-generator"]
               }
             ]
           doc-issues-project-state-mining: true
