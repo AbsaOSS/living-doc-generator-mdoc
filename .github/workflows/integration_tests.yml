@@ -48,11 +48,16 @@ jobs:
 
     - name: Integration test
       id: generate_living_doc_1
-      uses: ./
-      with:
-        source: "${{ steps.collect_data_without_project.outputs.output-path }}/doc-issues/doc-issues.json"
-        report-page: true
-        verbose-logging: true
+      env:
+        INPUT_SOURCE: "${{ steps.collect_data_without_project.outputs.output-path }}/doc-issues/doc-issues.json"
+        INPUT_RELEASE: "false"
+        INPUT_STRUCTURED_OUTPUT: "false"
+        INPUT_REPORT_PAGE: "true"
+        INPUT_VERBOSE_LOGGING: "true"
+      run: |
+        rm -rf output/generator
+        python main.py
+        echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
 
     - name: Show generated output
       run: ls -lR "${{ steps.generate_living_doc_1.outputs.output-path }}"
@@ -100,13 +105,17 @@ jobs:
 
       - name: Integration test
         id: generate_living_doc_1
-        uses: ./
         env:
-          GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
-        with:
-          source: "${{ steps.collect_data_with_project_1.outputs.output-path }}/doc-issues/doc-issues.json"
-          report-page: true
-          verbose-logging: true
+          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+          INPUT_SOURCE: "${{ steps.collect_data_with_project_1.outputs.output-path }}/doc-issues/doc-issues.json"
+          INPUT_RELEASE: "false"
+          INPUT_STRUCTURED_OUTPUT: "false"
+          INPUT_REPORT_PAGE: "true"
+          INPUT_VERBOSE_LOGGING: "true"
+        run: |
+          rm -rf output/generator
+          python main.py
+          echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
 
       - name: Show generated output
         run: ls -lR "${{ steps.generate_living_doc_1.outputs.output-path }}"
@@ -154,13 +163,17 @@ jobs:
 
       - name: Integration test
         id: generate_living_doc_2
-        uses: ./
         env:
-          GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
-        with:
-          source: "${{ steps.collect_data_with_project_2.outputs.output-path }}/doc-issues/doc-issues.json"
-          report-page: true
-          verbose-logging: true
+          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+          INPUT_SOURCE: "${{ steps.collect_data_with_project_2.outputs.output-path }}/doc-issues/doc-issues.json"
+          INPUT_RELEASE: "false"
+          INPUT_STRUCTURED_OUTPUT: "false"
+          INPUT_REPORT_PAGE: "true"
+          INPUT_VERBOSE_LOGGING: "true"
+        run: |
+          rm -rf output/generator
+          python main.py
+          echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
 
       - name: Show generated output
         run: ls -lR "${{ steps.generate_living_doc_2.outputs.output-path }}"
