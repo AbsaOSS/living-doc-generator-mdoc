@@ -55,7 +55,7 @@ jobs:
         INPUT_REPORT_PAGE: "true"
         INPUT_VERBOSE_LOGGING: "true"
       run: |
-        rm -rf output
+        rm -rf output/generator
         python main.py
         echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
 
@@ -113,7 +113,7 @@ jobs:
           INPUT_REPORT_PAGE: "true"
           INPUT_VERBOSE_LOGGING: "true"
         run: |
-          rm -rf output
+          rm -rf output/generator
           python main.py
           echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
 
@@ -171,7 +171,7 @@ jobs:
           INPUT_REPORT_PAGE: "true"
           INPUT_VERBOSE_LOGGING: "true"
         run: |
-          rm -rf output
+          rm -rf output/generator
           python main.py
           echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
 
