@@ -29,6 +29,8 @@ jobs:
     - name: Collect data for Integration tests
       id: collect_data_without_project
       uses: AbsaOSS/living-doc-collector-gh@3992722e3b7c547e8557a794cbe42d5413326dae
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
       with:
         GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         doc-issues: true
@@ -46,16 +48,11 @@ jobs:
 
     - name: Integration test
       id: generate_living_doc_1
-      env:
-        INPUT_SOURCE: "${{ steps.collect_data_without_project.outputs.output-path }}/doc-issues/doc-issues.json"
-        INPUT_RELEASE: "false"
-        INPUT_STRUCTURED_OUTPUT: "false"
-        INPUT_REPORT_PAGE: "true"
-        INPUT_VERBOSE_LOGGING: "true"
-      run: |
-        rm -rf output/generator
-        python main.py
-        echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
+      uses: ./
+      with:
+        source: "${{ steps.collect_data_without_project.outputs.output-path }}/doc-issues/doc-issues.json"
+        report-page: true
+        verbose-logging: true
 
     - name: Show generated output
       run: ls -lR "${{ steps.generate_living_doc_1.outputs.output-path }}"
@@ -83,7 +80,9 @@ jobs:
 
       - name: Collect data with Project for Integration tests
         id: collect_data_with_project_1
-        uses: AbsaOSS/living-doc-collector-gh@3992722e3b7c547e8557a794cbe42d5413326dae
+        uses: AbsaOSS/living-doc-collector-gh@6baaa84604e8e48d2561eca027166d34d9043bf2
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         with:
           GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
           doc-issues: true
@@ -101,17 +100,13 @@ jobs:
 
       - name: Integration test
         id: generate_living_doc_1
+        uses: ./
         env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
-          INPUT_SOURCE: "${{ steps.collect_data_with_project_1.outputs.output-path }}/doc-issues/doc-issues.json"
-          INPUT_RELEASE: "false"
-          INPUT_STRUCTURED_OUTPUT: "false"
-          INPUT_REPORT_PAGE: "true"
-          INPUT_VERBOSE_LOGGING: "true"
-        run: |
-          rm -rf output/generator
-          python main.py
-          echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
+          GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+        with:
+          source: "${{ steps.collect_data_with_project_1.outputs.output-path }}/doc-issues/doc-issues.json"
+          report-page: true
+          verbose-logging: true
 
       - name: Show generated output
         run: ls -lR "${{ steps.generate_living_doc_1.outputs.output-path }}"
@@ -139,7 +134,9 @@ jobs:
 
       - name: Collect data with Project for Integration tests
         id: collect_data_with_project_2
-        uses: AbsaOSS/living-doc-collector-gh@3992722e3b7c547e8557a794cbe42d5413326dae
+        uses: AbsaOSS/living-doc-collector-gh@6baaa84604e8e48d2561eca027166d34d9043bf2
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         with:
           GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
           doc-issues: true
@@ -157,17 +154,13 @@ jobs:
 
       - name: Integration test
         id: generate_living_doc_2
+        uses: ./
         env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
-          INPUT_SOURCE: "${{ steps.collect_data_with_project_2.outputs.output-path }}/doc-issues/doc-issues.json"
-          INPUT_RELEASE: "false"
-          INPUT_STRUCTURED_OUTPUT: "false"
-          INPUT_REPORT_PAGE: "true"
-          INPUT_VERBOSE_LOGGING: "true"
-        run: |
-          rm -rf output/generator
-          python main.py
-          echo "output-path=$PWD/output/generator/mdoc" >> "$GITHUB_OUTPUT"
+          GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+        with:
+          source: "${{ steps.collect_data_with_project_2.outputs.output-path }}/doc-issues/doc-issues.json"
+          report-page: true
+          verbose-logging: true
 
       - name: Show generated output
         run: ls -lR "${{ steps.generate_living_doc_2.outputs.output-path }}"
