@@ -30,7 +30,7 @@ jobs:
       id: collect_data_without_project
       uses: AbsaOSS/living-doc-collector-gh@3992722e3b7c547e8557a794cbe42d5413326dae
       env:
-        GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+        GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
       with:
         GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         doc-issues: true
@@ -87,7 +87,7 @@ jobs:
         id: collect_data_with_project_1
         uses: AbsaOSS/living-doc-collector-gh@3992722e3b7c547e8557a794cbe42d5413326dae
         env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+          GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         with:
           GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
           doc-issues: true
@@ -145,7 +145,7 @@ jobs:
         id: collect_data_with_project_2
         uses: AbsaOSS/living-doc-collector-gh@3992722e3b7c547e8557a794cbe42d5413326dae
         env:
-          GITHUB_TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
+          GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
         with:
           GITHUB-TOKEN: ${{ secrets.REPOSITORIES_TOKEN }}
           doc-issues: true
