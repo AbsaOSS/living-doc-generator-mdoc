@@ -33,7 +33,7 @@ permissions:
 
 jobs:
   aquasec-night-scan:
-    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/new-folder-structure
+    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/remove-obsolete-parts
     with:
       severity-priority-map: 'Critical=P0,High=P1,Medium=P2,Low=P3'
       project-number: 203
