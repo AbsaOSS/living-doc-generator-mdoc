@@ -42,7 +42,7 @@ jobs:
     uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/updating-teams-notifications
     with:
       dry-run: ${{ inputs.dry-run || false }}
-      severity-priority-map: 'Critical=P0,High=P1,Medium=P2,Low=P3'
+      min-severity: 'high'
       project-number: 203
       project-org: 'absa-group'
     secrets:
