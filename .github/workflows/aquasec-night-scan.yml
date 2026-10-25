@@ -39,7 +39,7 @@ permissions:
 
 jobs:
   aquasec-night-scan:
-    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@bug/127-security-sync-loads-only-1000-issues
+    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/101-cleanup-phase-2-migration
     with:
       dry-run: ${{ inputs.dry-run || false }}
       min-severity: 'high'
