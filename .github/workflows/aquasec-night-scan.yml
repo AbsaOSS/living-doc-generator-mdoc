@@ -17,8 +17,6 @@
 name: AquaSec Night Scan
 
 on:
-  schedule:
-    - cron: '23 2 * * *'
   workflow_dispatch:
     inputs:
       dry-run:
