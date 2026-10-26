@@ -37,7 +37,7 @@ permissions:
 
 jobs:
   aquasec-night-scan:
-    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/101-cleanup-phase-2-migration
+    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@bugfix/137-not-stable-issue-unique-key
     with:
       dry-run: ${{ inputs.dry-run || false }}
       min-severity: 'high'
