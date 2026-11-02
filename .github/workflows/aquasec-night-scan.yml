@@ -24,6 +24,11 @@ on:
         required: false
         type: boolean
         default: false
+      verbose-logging:
+        description: Enable verbose logging
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: aquasec-night-scan-${{ github.ref }}
@@ -40,6 +45,7 @@ jobs:
     uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@bugfix/137-not-stable-issue-unique-key
     with:
       dry-run: ${{ inputs.dry-run || false }}
+      verbose-logging: ${{ inputs.verbose-logging || false }}
       min-severity: 'high'
       project-number: 203
       project-org: 'absa-group'
