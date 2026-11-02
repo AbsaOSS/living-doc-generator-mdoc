@@ -42,7 +42,7 @@ permissions:
 
 jobs:
   aquasec-night-scan:
-    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@bugfix/137-not-stable-issue-unique-key
+    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@master
     with:
       dry-run: ${{ inputs.dry-run || false }}
       verbose-logging: ${{ inputs.verbose-logging || false }}
