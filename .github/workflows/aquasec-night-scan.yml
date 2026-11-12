@@ -42,7 +42,7 @@ permissions:
 
 jobs:
   aquasec-night-scan:
-    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@master
+    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/117-make-onboarding-easier
     with:
       dry-run: ${{ inputs.dry-run || false }}
       verbose-logging: ${{ inputs.verbose-logging || false }}
@@ -52,6 +52,5 @@ jobs:
     secrets:
       AQUA_KEY: ${{ secrets.AQUA_KEY }}
       AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
-      AQUA_GROUP_ID: ${{ secrets.AQUA_GROUP_ID }}
       AQUA_REPOSITORY_ID: ${{ secrets.AQUA_REPOSITORY_ID }}
       TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
