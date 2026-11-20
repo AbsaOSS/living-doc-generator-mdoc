@@ -42,7 +42,7 @@ permissions:
 
 jobs:
   aquasec-night-scan:
-    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@feature/117-adding-the-repo-id-endpoint
+    uses: AbsaOSS/organizational-workflows/.github/workflows/aquasec-scan.yml@master
     with:
       dry-run: ${{ inputs.dry-run || false }}
       verbose-logging: ${{ inputs.verbose-logging || false }}
